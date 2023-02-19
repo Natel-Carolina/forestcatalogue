@@ -9,7 +9,7 @@ export default function ({ comp, search }: PageData) {
         return (
           <>
             <h2>{p.data.menu}</h2>
-            {Object.values(p.data.items)
+            {p.data.items && Object.values(p.data.items)
               .slice(0, 3)
               .map((item: any) => (
                 <>
