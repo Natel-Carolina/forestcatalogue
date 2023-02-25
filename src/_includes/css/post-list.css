@@ -1,0 +1,35 @@
+.post-list {
+  list-style: none;
+  padding: 0;
+
+  & article.post + article.post {
+    margin-top: var(--row-gap-medium);
+  }
+  & li.post + li.post {
+    margin-top: var(--row-gap-small);
+  }
+
+  & .post-header,
+  & .post-list-header {
+    margin-bottom: var(--row-gap-xsmall);
+  }
+
+  & .post-list-header {
+    text-align: center;
+  }
+
+  & .post-details {
+    font: var(--font-small);
+  }
+
+  & .post-title,
+  & .post-list-title {
+    font: var(--font-title);
+    letter-spacing: var(--font-title-spacing);
+    display: block;
+
+    & a {
+      text-decoration: none;
+    }
+  }
+}

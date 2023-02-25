@@ -11,11 +11,7 @@ const Layout = (pd: PageData) => {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
       </head>
       <body>
-        {pd.hero === false ? (
-          <pd.comp.Header {...pd} />
-        ) : (
-          <pd.comp.Hero {...pd} />
-        )}
+        <pd.comp.Header {...pd} />
         <pd.comp.PageContainer>{pd.children}</pd.comp.PageContainer>
         {/* <pd.comp.Footer /> */}
       </body>

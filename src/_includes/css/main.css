@@ -5,3 +5,10 @@
 @import './ds/reset.css';
 
 @import './navbar.css';
+@import './page.css';
+@import './post.css';
+@import './post-list.css';
+
+@import './ds/components/badge.css';
+@import './ds/components/body.css';
+@import './ds/components/button.css';

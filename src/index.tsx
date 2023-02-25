@@ -5,39 +5,69 @@ export default function ({ comp, search }: PageData) {
 
   return (
     <>
+      <header class="page-header">
+        <h1 class="page-title">
+          A catalogue of resources for working with forest data
+        </h1>
+
+        {/* <div class="search" id="search"></div> */}
+      </header>
       {pages.map((p) => {
         return (
-          <>
-            <h2>{p.data.menu}</h2>
+          <section class="post-list">
+            <header class="post-list-header">
+              <h2 class="post-list-title">
+                <a href={p.data.url}>{p.data.menu}</a>
+              </h2>
+            </header>
             {Object.values(p.data.items)
               .slice(0, 3)
               .map((item: any) => (
-                <>
-                  <h3>{item.name}</h3>
-                  <p>{item.description}</p>
-                  <p style={{ gap: '4px', display: 'flex' }}>
-                    Links:{' '}
-                    {item.ext_url ? <a href={item.ext_url}>website</a> : null}
-                    {item.github_repo ? (
-                      <a href={item.github_repo}>github</a>
+                <article class="post">
+                  <header class="post-header">
+                    <h3 class="post-title">{item.name}</h3>
+                  </header>
+
+                  <div class="post-excerpt body">{item.description}</div>
+
+                  <div class="post-details">
+                    {item.ext_url ? (
+                      <p>
+                        <a href={item.ext_url}>Visit website</a>
+                      </p>
                     ) : null}
-                  </p>
-                  {item.tags ? (
-                    <p style={{ gap: '4px', display: 'flex' }}>
-                      Tags:{' '}
-                      {item.tags.map((tag: any) => (
-                        <span>{tag}</span>
-                      ))}
-                    </p>
-                  ) : null}
-                  <p>
-                    <button>
-                      <a href={p.data.url}>View more</a>
-                    </button>
-                  </p>
-                </>
+                    {item.github_repo ? (
+                      <p>
+                        <a href={item.github_repo}>View on github</a>
+                      </p>
+                    ) : null}
+                    {item.tags ? (
+                      <div class="post-tags">
+                        {item.tags.map((tag: any) => {
+                          const tagPage = search.page(
+                            "type=tag tag='" + tag + "'"
+                          );
+                          return (
+                            <a
+                              data-pagefind-filter="filter"
+                              class="badge"
+                              href={tagPage?.data.url}
+                            >
+                              {tag}
+                            </a>
+                          );
+                        })}
+                      </div>
+                    ) : null}
+                  </div>
+                </article>
               ))}
-          </>
+            <br />
+            <button class="button">
+              <a href={p.data.url}>More {p.data.menu}</a>
+            </button>
+            <hr />
+          </section>
         );
         // {p.data?.url}</div>;
         // <comp.PagePreview />
