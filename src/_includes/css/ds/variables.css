@@ -32,8 +32,8 @@
     'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono',
     'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L',
     'Courier New', Courier, monospace;
-  --font-family-ui: -apple-system, system-ui, sans-serif;
-  --font-family-display: Epilogue, var(--font-family-ui);
+  --font-family-ui: Poppins, -apple-system, system-ui, sans-serif;
+  --font-family-display: Poppins, var(--font-family-ui);
 
   --font-code: 0.9em/1.5 var(--font-family-code);
   --font-display: bold clamp(2rem, 10vw, 4rem) / 1 var(--font-family-display);
@@ -74,7 +74,7 @@
 /* Support for variable fonts */
 @supports (font-variation-settings: normal) {
   :root {
-    --font-family-ui: Inter, -apple-system, system-ui, sans-serif;
+    --font-family-ui: Poppins, -apple-system, system-ui, sans-serif;
     --font-display-spacing: -0.035em;
     --font-title-spacing: -0.025em;
     --font-body-spacing: -0.015em;

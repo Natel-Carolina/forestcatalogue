@@ -17,7 +17,7 @@ const Layout = (pd: PageData) => {
           <pd.comp.Hero {...pd} />
         )}
         <pd.comp.PageContainer>{pd.children}</pd.comp.PageContainer>
-        <pd.comp.Footer />
+        {/* <pd.comp.Footer /> */}
       </body>
     </html>
   );
