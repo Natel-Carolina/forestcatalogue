@@ -5,21 +5,12 @@ const Layout = (pd: PageData) => {
     <html lang="en">
       <head>
         <title>{pd.title}</title>
-        <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="/styles.css" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
       </head>
-      <body
-        style={{
-          margin: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          color: 'white',
-          fontFamily: "'Poppins', sans-serif",
-          minHeight: '100vh',
-        }}
-      >
+      <body>
         {pd.hero === false ? (
           <pd.comp.Header {...pd} />
         ) : (

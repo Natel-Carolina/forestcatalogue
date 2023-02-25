@@ -1,0 +1,10 @@
+@import 'css/main.css';
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: 'Poppins' sans-serif;
+  min-height: 100vh;
+}
