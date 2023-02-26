@@ -1,7 +1,7 @@
 import { PageData } from 'lume/core.ts';
 
 export default function ({ comp, search, ...rest }: PageData) {
-  const topLevelPages = search.pages('menu!=undefined');
+  const topLevelPages = search.pages('menu!=undefined url!=/');
 
   return (
     <ul class="navbar-links">

@@ -32,7 +32,7 @@
     'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono',
     'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L',
     'Courier New', Courier, monospace;
-  --font-family-ui: Poppins, -apple-system, system-ui, sans-serif;
+  --font-family-ui: -apple-system, system-ui, sans-serif;
   --font-family-display: Poppins, var(--font-family-ui);
 
   --font-code: 0.9em/1.5 var(--font-family-code);
@@ -77,7 +77,7 @@
     --font-family-ui: Poppins, -apple-system, system-ui, sans-serif;
     --font-display-spacing: -0.035em;
     --font-title-spacing: -0.025em;
-    --font-body-spacing: -0.015em;
+    --font-body-spacing: 0.015em;
   }
 }
 

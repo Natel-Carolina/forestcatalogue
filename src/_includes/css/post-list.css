@@ -19,6 +19,7 @@
   }
 
   & .post-details {
+    margin-top: var(--row-gap-small);
     font: var(--font-small);
   }
 
