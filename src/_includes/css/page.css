@@ -1,0 +1,25 @@
+/* Page layout */
+main.page {
+  padding: var(--row-gap-medium) 0;
+  max-width: min(100% - 15vw, 45em);
+  margin: 0 auto;
+
+  & > :first-child {
+    margin-top: 0;
+  }
+}
+
+.page-header {
+  margin-bottom: var(--row-gap-medium);
+
+  & > p:first-child {
+    margin-top: 0;
+    margin-bottom: var(--row-gap-medium);
+  }
+}
+
+.page-title {
+  font: var(--font-display);
+  letter-spacing: var(--font-display-spacing);
+  margin: 0;
+}

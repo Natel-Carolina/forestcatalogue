@@ -8,14 +8,10 @@ export default function ({
   isActive: boolean;
 }) {
   return (
-    <a
-      href={url}
-      style={{
-        color: `${isActive ? 'white' : 'lightgrey'}`,
-        textDecoration: `${isActive ? 'underline' : 'none'}`,
-      }}
-    >
-      {label}
-    </a>
+    <li>
+      <a href={url} aria-current={isActive ? 'page' : ''}>
+        {label}
+      </a>
+    </li>
   );
 }

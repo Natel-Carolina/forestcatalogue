@@ -1,3 +1,7 @@
 export default function ({ site_name }: { site_name: string }) {
-  return <a href="/">{site_name}</a>;
+  return (
+    <a href="/" class="navbar-home">
+      {site_name}
+    </a>
+  );
 }

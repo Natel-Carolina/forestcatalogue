@@ -1,0 +1,14 @@
+name: MtreeRing
+github_repo: https://github.com/ropensci/MtreeRing  
+description: MtreeRing is a tool for automatically measuring tree-ring width using image processing techniques.  
+license: GPL3  
+tags:
+  - r 
+  - forest 
+  - forestry 
+  - shiny-apps 
+  - dendrochronology 
+  - tree-ring-width 
+  - tree-rings
+  - equations
+   
