@@ -1,0 +1,35 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from '../../layouts/Layout.astro';
+
+interface Props {
+  posts: Array<CollectionEntry<'datasets' | 'models' | 'other-resources'| 'tools'>>;
+}
+
+export async function getStaticPaths() {
+  const allDatasets = await getCollection("datasets");
+  const allModels = await getCollection("models");
+  const allResources = await getCollection("other-resources");
+  const allTools = await getCollection("tools");
+  const allPosts = [...allDatasets, ...allModels, ...allResources, ...allTools];
+
+  const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+<Layout title={tag || 'no tags found'}>
+  <p>Posts tagged with {tag}</p>
+  <ul>
+    {posts.map((post) => <li><a href={`/${post.collection}/${post.slug}`}>{post.data.title}</a></li>)}
+  </ul>
+</Layout>

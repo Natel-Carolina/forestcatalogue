@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import Layout from '../layouts/Layout.astro';
+
+const allPosts = await getCollection("other-resources");
+---
+
+<Layout title="Forest Catalog | Other Resources">
+	<main>
+		<h1>Other Resources</h1>
+    <ul>
+      {allPosts.map((post) => <li><a href={`/${post.collection}/${post.slug}`}>{post.data.title}</a></li>)}
+    </ul>
+  </main>
+</Layout>
