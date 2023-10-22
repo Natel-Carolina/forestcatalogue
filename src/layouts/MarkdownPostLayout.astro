@@ -8,8 +8,10 @@ const { frontmatter } = Astro.props;
   <PageTitle>{frontmatter.title}</PageTitle>
   <div class=" max-w-[640px] mx-auto">
     {frontmatter.author ? <p class="mt-8">Written by {frontmatter.author}</p> : null}
-    {frontmatter.ext_url ? <p class="mt-8 hover:font-bold focus:font-bold"><a href={frontmatter.ext_url}>External link
+    {frontmatter.ext_url ? <p class="mt-8 hover:font-bold focus:font-bold"><a href={frontmatter.ext_url}>Website
 			<span>&rarr; </span>{frontmatter.ext_url}</a></p> : null}
+    {frontmatter.github_repo ? <p class="mt-8 hover:font-bold focus:font-bold"><a href={frontmatter.github_repo}>Github
+			<span>&rarr; </span>{frontmatter.github_repo}</a></p> : null}
     <p class="my-12">{frontmatter.description}</p>
     <p> Tags:</p>
     <div class="flex flex-wrap">
