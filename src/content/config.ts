@@ -9,6 +9,7 @@ const postsCollection = defineCollection({
     description: z.string(),
     author: z.string().optional(),
     tags: z.array(z.string()),
+    ext_url: z.string().optional(),
   }),
 });
 // Export a single `collections` object to register your collection(s)
