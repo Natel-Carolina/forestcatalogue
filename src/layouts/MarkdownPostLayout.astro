@@ -1,35 +1,20 @@
 ---
 import Layout from './Layout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import Tag from '../components/Tag.astro';
 const { frontmatter } = Astro.props;
 ---
 <Layout title={frontmatter.title}>
-<h1>{frontmatter.title}</h1>
-<p>Written by {frontmatter.author}</p>
-<p>{frontmatter.description}</p>
-<div class="tags">
-  {frontmatter.tags.map((tag: string) => (
-    <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-  ))}
-</div>
-<slot />
+  <PageTitle>{frontmatter.title}</PageTitle>
+  <div class=" max-w-[640px] mx-auto">
+    {frontmatter.author ? <p class="mt-8">Written by {frontmatter.author}</p> : null}
+    <p class="my-12">{frontmatter.description}</p>
+    <p> Tags:</p>
+    <div class="flex flex-wrap">
+      {frontmatter.tags.map((tag: string) => (
+        <Tag tag={tag} />
+      ))}
+    </div>
+  </div>
+  <slot />
 </Layout>
-
-<style>
-  a {
-    color: #00539F;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
-  }
-</style>

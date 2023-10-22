@@ -1,15 +1,17 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from '../layouts/Layout.astro';
+import PageTitle from '../components/PageTitle.astro';
 
 const allPosts = await getCollection("other-resources");
 ---
 
 <Layout title="Forest Catalog | Other Resources">
 	<main>
-		<h1>Other Resources</h1>
-    <ul>
-      {allPosts.map((post) => <li><a href={`/${post.collection}/${post.slug}`}>{post.data.title}</a></li>)}
+		<PageTitle>Other Resources</PageTitle>
+    <ul class="flex flex-col gap-4 mt-8 mx-auto max-w-[800px]">
+      {allPosts.map((post) => <li class="flex-col flex gap-4 rounded shadow p-4 bg-sushi-50/70"><a href={`${post.collection}/${post.slug}`} class="text-xl font-bold">{post.data.title}</a>
+        <div>{post.data.description}</div></li>)}
     </ul>
   </main>
 </Layout>

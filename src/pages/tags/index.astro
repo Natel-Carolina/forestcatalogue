@@ -1,32 +1,23 @@
 ---
+import { getCollection } from 'astro:content';
+
 import Layout from '../../layouts/Layout.astro';
-const allPosts = await Astro.glob('../datasets/*.md');
-const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+import PageTitle from '../../components/PageTitle.astro';
+import Tag from '../../components/Tag.astro';
+
+const allDatasets = await getCollection('datasets');
+const allModels = await getCollection('models');
+const allResources = await getCollection('other-resources');
+const allTools = await getCollection('tools');
+const allPosts = [...allDatasets, ...allModels, ...allResources, ...allTools];
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())].sort();
 const pageTitle = "Tag Index";
 ---
 <Layout title={pageTitle}>
-  <div class="tags">
+  <PageTitle>Tags</PageTitle>
+  <div class="flex flex-wrap mt-16 justify-center">
     {tags.map((tag) => (
-      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+      <Tag tag={tag} />
     ))}
   </div>
 </Layout>
-<style>
-  a {
-    color: #00539F;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
-  }
-</style>

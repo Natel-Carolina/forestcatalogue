@@ -7,7 +7,7 @@ license: Apache-2.0
 tags:
   - simulator
   - forestry
-  - 3d-graphics,
+  - 3d-graphics
   - ecosystem-services
   - forest-dynamics
   - large-scale-simulation
