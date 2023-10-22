@@ -25,9 +25,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  BUILD_PATH: '.' # default value when not using subfolders      env:
-  GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-  GITHUB_REPOSITORY: ${{ github.repository }}
+  BUILD_PATH: '.' # default value when not using subfolders
   # BUILD_PATH: subfolder
 
 jobs:
