@@ -31,7 +31,7 @@ const { posts } = Astro.props;
 <Layout title={tag || 'no tags found'}>
   <PageTitle>Posts tagged with <span class="bg-sushi-950 text-sushi-50 px-2">{tag}</span></PageTitle>
   <ul class="flex flex-col gap-4 mt-8 mx-auto max-w-[800px]">
-    {posts.map((post) => <li class="flex-col flex gap-4 rounded shadow p-4 bg-sushi-50/70"><a href={`/${post.collection}/${post.slug}`} class="text-xl font-bold">{post.data.title}</a>
+    {posts.map((post) => <li class="flex-col flex gap-4 rounded shadow p-4 bg-sushi-50/70"><a href={`./${post.collection}/${post.slug}`} class="text-xl font-bold">{post.data.title}</a>
       <div>{post.data.description}</div></li>)}
   </ul>
 </Layout>
