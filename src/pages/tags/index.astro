@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
-import Layout from "../../layouts/Layout.astro";
-import PageTitle from "../../components/PageTitle.astro";
-import Tag from "../../components/Tag.astro";
+import Layout from "@layouts/Layout.astro";
+import PageTitle from "@components/PageTitle.astro";
+import Tag from "@components/Tag.astro";
 
 const allDatasets = await getCollection("datasets");
 const allModels = await getCollection("models");

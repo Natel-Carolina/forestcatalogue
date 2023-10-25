@@ -1,11 +1,11 @@
 ---
-import Layout from './Layout.astro';
-import PageTitle from '../components/PageTitle.astro';
-import PostCard from '../components/PostCard.astro';
+import Layout from "./Layout.astro";
+import PageTitle from "@components/PageTitle.astro";
+import PostCard from "@components/PostCard.astro";
 
 const { frontmatter } = Astro.props;
-const hasMarkdown = Astro.slots.has('default');
-const markdown = await Astro.slots.render('default');
+const hasMarkdown = Astro.slots.has("default");
+const markdown = await Astro.slots.render("default");
 ---
 
 <Layout title={frontmatter.title}>
