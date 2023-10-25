@@ -3,6 +3,7 @@ import Layout from './Layout.astro';
 import PageTitle from '../components/PageTitle.astro';
 import Tag from '../components/Tag.astro';
 const { frontmatter } = Astro.props;
+const hasMarkdown = Astro.slots.has('default');
 ---
 <Layout title={frontmatter.title}>
   <PageTitle>{frontmatter.title}</PageTitle>
@@ -19,6 +20,8 @@ const { frontmatter } = Astro.props;
         <Tag tag={tag} />
       ))}
     </div>
+  {hasMarkdown ? <article class="prose mt-20">
+    <slot />
+  </article> : null}
   </div>
-  <slot />
 </Layout>
