@@ -1,10 +1,12 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
-import Layout from '../../layouts/Layout.astro';
-import PageTitle from '../../components/PageTitle.astro';
+import Layout from "../../layouts/Layout.astro";
+import PageTitle from "../../components/PageTitle.astro";
 
 interface Props {
-  posts: Array<CollectionEntry<'datasets' | 'models' | 'other-resources'| 'tools'>>;
+  posts: Array<
+    CollectionEntry<"datasets" | "models" | "other-resources" | "tools">
+  >;
 }
 
 export async function getStaticPaths() {
@@ -14,10 +16,14 @@ export async function getStaticPaths() {
   const allTools = await getCollection("tools");
   const allPosts = [...allDatasets, ...allModels, ...allResources, ...allTools];
 
-  const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag));
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag),
+    );
     return {
       params: { tag },
       props: { posts: filteredPosts },
@@ -28,10 +34,24 @@ export async function getStaticPaths() {
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
-<Layout title={tag || 'no tags found'}>
-  <PageTitle>Posts tagged with <span class="bg-sushi-950 text-sushi-50 px-2">{tag}</span></PageTitle>
+
+<Layout title={tag || "no tags found"}>
+  <PageTitle>
+    Posts tagged with <span class="bg-sushi-950 text-sushi-50 px-2">{tag}</span>
+  </PageTitle>
   <ul class="flex flex-col gap-4 mt-8 mx-auto max-w-[800px]">
-    {posts.map((post) => <li class="flex-col flex gap-4 rounded shadow p-4 bg-sushi-50/70"><a href={`./${post.collection}/${post.slug}`} class="text-xl font-bold">{post.data.title}</a>
-      <div>{post.data.description}</div></li>)}
+    {
+      posts.map((post) => (
+        <li class="flex-col flex gap-4 rounded shadow p-4 bg-sushi-50/70">
+          <a
+            href={`./${post.collection}/${post.slug}`}
+            class="text-xl font-bold"
+          >
+            {post.data.title}
+          </a>
+          <div>{post.data.description}</div>
+        </li>
+      ))
+    }
   </ul>
 </Layout>

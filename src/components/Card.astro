@@ -1,20 +1,21 @@
 ---
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+  title: string;
+  body: string;
+  href: string;
 }
 
 const { href, title, body } = Astro.props;
-const focusClasses = "focus-within:outline-none focus-within:ring focus-within:ring-sushi-500 focus-within:text-sushi-200 focus-within:bg-sushi-800"
-const hoverClasses = "hover:text-sushi-200 hover:bg-sushi-800"
+const focusClasses =
+  "focus-within:outline-none focus-within:ring focus-within:ring-sushi-500 focus-within:text-sushi-200 focus-within:bg-sushi-800";
+const hoverClasses = "hover:text-sushi-200 hover:bg-sushi-800";
 ---
 
 <li class=`text-xl ${focusClasses} ${hoverClasses}`>
-	<a href={href}>
-		<h2 class="px-2">
-			{title}
-			<span>&rarr;</span>
-		</h2>
-	</a>
+  <a href={href}>
+    <h2 class="px-2">
+      {title}
+      <span>&rarr;</span>
+    </h2>
+  </a>
 </li>

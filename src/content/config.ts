@@ -1,8 +1,8 @@
 // Import utilities from `astro:content`
-import { z, defineCollection } from 'astro:content';
+import { z, defineCollection } from "astro:content";
 // Define a `type` and `schema` for each collection
 const postsCollection = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     title: z.string(),
     pubDate: z.date().optional(),
@@ -17,6 +17,6 @@ const postsCollection = defineCollection({
 export const collections = {
   datasets: postsCollection,
   tools: postsCollection,
-  ['other-resources']: postsCollection,
+  ["other-resources"]: postsCollection,
   models: postsCollection,
 };

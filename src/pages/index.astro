@@ -1,31 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import PageTitle from '../components/PageTitle.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import PageTitle from "../components/PageTitle.astro";
 ---
 
 <Layout title="Forest Catalog">
-	<main class="space-y-12 mx-auto max-w-[800px]">
-		<PageTitle>Forest Catalog</PageTitle>
+  <main class="space-y-12 mx-auto max-w-[800px]">
+    <PageTitle>Forest Catalog</PageTitle>
     <div>This is a collection of data and tools for working with forests.</div>
-		<ul role="list" class="grid auto-rows-fr grid-flow-row gap-4">
-			<Card
-				href="./datasets"
-				title="Datasets"
-			/>
-			<Card
-				href="./models"
-				title="Models"
-			/>
-			<Card
-				href="./tools"
-				title="Tools"
-			/>
-			<Card
-				href="./other-resources"
-				title="Other Resources"
-			/>
-		</ul>
+    <ul role="list" class="grid auto-rows-fr grid-flow-row gap-4">
+      <Card href="./datasets" title="Datasets" />
+      <Card href="./models" title="Models" />
+      <Card href="./tools" title="Tools" />
+      <Card href="./other-resources" title="Other Resources" />
+    </ul>
     <p><a href="./tags">Browse tags <span>&rarr;</span></a></p>
-	</main>
+  </main>
 </Layout>
