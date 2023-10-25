@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '@layouts/Layout.astro';
+import PageTitle from '@components/PageTitle.astro';
+---
+
+<Layout title="Forest Catalog | Oops...">
+  <main class="space-y-12 mx-auto max-w-[800px]">
+    <PageTitle>Oops...</PageTitle>
+    <p class="text-center">The page you requested does not exist.</p>
+      <Image
+        src="https://i.imgur.com/QIxIKBH.png"
+        alt="An error occurred"
+        width={400}
+        height={400}
+        class="mx-auto"
+      />
+  </main>
+</Layout>
