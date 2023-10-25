@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon';
+import Tag from '../components/Tag.astro';
+
+const { frontmatter } = Astro.props;
+
+const hasLinks = frontmatter.ext_url || frontmatter.github_repo;
+---
+
+{frontmatter.author ? <p class="">Written by {frontmatter.author}</p> : null}
+<p class="">{frontmatter.description}</p>
+<div class="flex flex-wrap gap-2">
+  {frontmatter.tags.map((tag: string) => <Tag tag={tag} />)}
+</div>
+{
+  hasLinks ? (
+    <section class="flex gap-2">
+      <span>Project links: </span>
+      {frontmatter.ext_url ? (
+        <a
+          href={frontmatter.ext_url}
+          class="hover:font-bold focus:font-bold flex items-center"
+        >
+          <Icon
+            pack="fa-solid"
+            name="link"
+            class="h-3"
+            title="Link to project's site"
+          />
+        </a>
+      ) : null}
+      {frontmatter.github_repo ? (
+        <a
+          href={frontmatter.github_repo}
+          class="hover:font-bold focus:font-bold flex items-center"
+        >
+          <Icon
+            pack="fa-brands"
+            name="github"
+            class="h-4"
+            title="Link to project's github"
+          />
+        </a>
+      ) : null}
+    </section>
+  ) : null
+}

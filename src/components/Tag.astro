@@ -6,6 +6,8 @@ interface Props {
 const { tag } = Astro.props;
 ---
 
-<a href={`./tags/${tag}`} class="bg-sushi-900 text-sushi-50 px-2 py-1 rounded"
+<a
+  href={`./tags/${tag}`}
+  class="bg-sushi-100 text-sushi-800 px-2 py-1 rounded hover:bg-sushi-700 hover:text-sushi-100 focus:bg-sushi-700 focus:text-sushi-100"
   >{tag}</a
 >

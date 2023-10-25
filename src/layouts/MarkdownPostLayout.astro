@@ -1,13 +1,11 @@
 ---
-import { Icon } from "astro-icon";
-import Layout from "./Layout.astro";
-import PageTitle from "../components/PageTitle.astro";
-import Tag from "../components/Tag.astro";
+import Layout from './Layout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import PostCard from '../components/PostCard.astro';
 
 const { frontmatter } = Astro.props;
-const hasMarkdown = Astro.slots.has("default");
-const markdown = await Astro.slots.render("default");
-const hasLinks = frontmatter.ext_url || frontmatter.github_repo;
+const hasMarkdown = Astro.slots.has('default');
+const markdown = await Astro.slots.render('default');
 ---
 
 <Layout title={frontmatter.title}>
@@ -15,47 +13,7 @@ const hasLinks = frontmatter.ext_url || frontmatter.github_repo;
   <div
     class="p-4 bg-sushi-200 rounded max-w-[640px] mx-auto mt-8 gap-4 flex-col flex"
   >
-    {
-      frontmatter.author ? (
-        <p class="">Written by {frontmatter.author}</p>
-      ) : null
-    }
-    <p class="">{frontmatter.description}</p>
-    <div class="flex flex-wrap gap-2">
-      {frontmatter.tags.map((tag: string) => <Tag tag={tag} />)}
-    </div>
-    {
-      hasLinks ? (
-        <section class="flex gap-2">
-          {frontmatter.ext_url ? (
-            <a
-              href={frontmatter.ext_url}
-              class="hover:font-bold focus:font-bold"
-            >
-              <Icon
-                pack="fa-solid"
-                name="external-link-alt"
-                class="h-5"
-                title="Link to project's site"
-              />
-            </a>
-          ) : null}
-          {frontmatter.github_repo ? (
-            <a
-              href={frontmatter.github_repo}
-              class="hover:font-bold focus:font-bold"
-            >
-              <Icon
-                pack="fa-brands"
-                name="github"
-                class="h-5"
-                title="Link to project's github"
-              />
-            </a>
-          ) : null}
-        </section>
-      ) : null
-    }
+    <PostCard frontmatter={frontmatter} />
     {
       hasMarkdown && markdown ? (
         <article class="prose mt-20">

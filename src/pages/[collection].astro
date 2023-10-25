@@ -1,0 +1,50 @@
+---
+import type { InferGetStaticParamsType, GetStaticPaths } from 'astro';
+import { getCollection, type ContentCollectionKey } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import PostCard from '../components/PostCard.astro';
+
+export const getStaticPaths = (async () => {
+  const collections = [
+    'datasets',
+    'models',
+    'other-resources',
+    'tools',
+  ] as ContentCollectionKey[];
+
+  return collections.map((collection) => ({
+    params: { collection },
+    props: {},
+  }));
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+const { collection } = Astro.params as Params;
+const allPosts = await getCollection(collection);
+const titleWords = collection.split('-');
+const capitalizedTitle = titleWords
+  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(' ');
+---
+
+<Layout title={`Forest Catalog | ${capitalizedTitle}`}>
+  <main>
+    <PageTitle>{capitalizedTitle}</PageTitle>
+    <ul class="flex flex-col gap-4 mt-8 mx-auto max-w-[800px]">
+      {
+        allPosts.map((post) => (
+          <li class="flex-col flex gap-4 rounded shadow p-4 bg-sushi-200">
+            <a
+              href={`./${post.collection}/${post.slug}`}
+              class="text-xl font-bold"
+            >
+              {post.data.title}
+            </a>
+            <PostCard frontmatter={post.data} />
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>
