@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "@layouts/Layout.astro";
+import PostCard from "@components/PostCard.astro";
 import PageTitle from "@components/PageTitle.astro";
 
 interface Props {
@@ -42,14 +43,14 @@ const { posts } = Astro.props;
   <ul class="flex flex-col gap-4 mt-8 mx-auto max-w-[800px]">
     {
       posts.map((post) => (
-        <li class="flex-col flex gap-4 rounded shadow p-4 bg-sushi-50/70">
+        <li class="flex-col flex gap-4 rounded shadow p-4 bg-sushi-200">
           <a
             href={`./${post.collection}/${post.slug}`}
             class="text-xl font-bold"
           >
             {post.data.title}
           </a>
-          <div>{post.data.description}</div>
+          <PostCard frontmatter={post.data} />
         </li>
       ))
     }
