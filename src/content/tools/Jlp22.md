@@ -4,10 +4,6 @@ github_repo: https://github.com/juhalappi/Jlp22
 description: Jlp22 is a software for general purpose computations with special interest in linear programming (LP) in forest management planning.
 license: MIT
 tags:
-  - fortran
-  - optimization
-  - linear-programming
   - forestry
-  - forest-management
-  - forest-industry
+
 ---

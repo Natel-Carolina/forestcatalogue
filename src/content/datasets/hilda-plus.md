@@ -7,11 +7,5 @@ license: CC-BY-4.0
 tags:
   - forest
   - land-use
-  - land-cover
-  - high-resolution
-  - model-reconstruction
   - global
-  - land-use-change
-  - remote-sensing
-  - hilda+
 ---

@@ -5,11 +5,5 @@ github_repo: https://github.com/forestsim-mtu/forestsim
 description: ForestSim -- Agent-based model (ABM) that is intended for research into the policy and sustainability of woody-biomass based biofuels and bioenergy options.
 license: MIT
 tags:
-  - abm
-  - agent-based-model
   - forestry
-  - policy-analysis
-  - mason
-  - social-simulation
-  - forestsim
 ---

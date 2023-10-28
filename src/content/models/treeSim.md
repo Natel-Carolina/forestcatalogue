@@ -5,15 +5,6 @@ github_repo: https://github.com/AbbasNabhani/TreeSim
 description: An R package for forest growth simulation using the 3-PG process-based model
 license: Apache-2.0
 tags:
-  - simulator
   - forestry
-  - 3d-graphics
-  - ecosystem-services
-  - forest-dynamics
-  - large-scale-simulation
-  - forest-growth
-  - forest-carbon
-  - model
-  - tree-simulation
-  - treesim
+  - carbon
 ---

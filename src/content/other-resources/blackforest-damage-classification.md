@@ -4,11 +4,6 @@ ext_url: https://medium.com/@timo.fischer1308/estimating-tree-damage-classes-usi
 github_repo: https://github.com/timof1308/Blackforest-Damage-Classification
 description: Estimating Tree Damages Using Remote Sensing Data in the Black Forest in Germany
 tags:
-  - python
   - remote-sensing
-  - classification
-  - ensemble-learning
-  - forest-inventory
-  - blackforest
-  - jupyter-notebook
+  - machine-learning
 ---

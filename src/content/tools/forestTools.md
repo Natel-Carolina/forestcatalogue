@@ -7,7 +7,4 @@ tags:
   - remote-sensing
   - forest
   - forestry
-  - lidar
-  - point-clouds
-  - canopy-height-model
 ---

@@ -5,11 +5,7 @@ github_repo: https://github.com/brycefrank/allometric
 description: Codes and data for a published work "Improve the deep learning models in forestry based on explanations and expertise"
 license: MIT
 tags:
-  - python
-  - deep-learning
-  - image-classification
+  - machine-learning
   - forestry
-  - xai
-  - feature-unlearning
-  - fpls
+
 ---

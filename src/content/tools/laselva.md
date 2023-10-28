@@ -10,12 +10,6 @@ description: >-
   * Japan Ministry of the Environment, Monitoring Sites 1000 Project, description
 license: MIT
 tags:
-  - data
-  - r
-  - plants
-  - rstats
   - forestry
-  - r-package
-  - trees
-  - forest-inventory
+  - inventory
 ---

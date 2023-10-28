@@ -5,16 +5,7 @@ github_repo: https://github.com/mparkan/Digital-Forestry-Toolbox
 description: The Digital Forestry Toolbox (DFT) is collection of tools and tutorials for Matlab/Octave designed to help process and analyze remote sensing data related to forests.
 license: GPL-3.0
 tags:
-  - laser
-  - matlab
   - forest
-  - point-cloud
-  - vegetation
-  - octave
   - remote-sensing
-  - lidar
-  - asprs
   - forestry
-  - digital-forestry-toolbox
-  - laser-scanning
 ---

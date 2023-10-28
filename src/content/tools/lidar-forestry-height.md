@@ -5,13 +5,5 @@ description: Plugin to generates a Digital Elevation Model (DEM) with the forest
 license: GPL
 tags:
   - forest
-  - raster
-  - python
-  - lidar
   - forestry
-  - dem
-  - dsm
-  - qgis3-plugin
-  - dtm
-  - geotif
 ---

@@ -5,13 +5,6 @@ github_repo: https://github.com/Priestley-Centre/SBCM
 description: Open-source implementation of the model described by Sterman et al. (2018) to calculate estimates of carbon payback periods for the use of biomass fuel.
 license: MIT
 tags:
-  - python
   - forestry
-  - carbon-emissions
   - biomass
-  - model
-  - dlca
-  - bioenergy
-  - carbon-debt
-  - sbcm
 ---

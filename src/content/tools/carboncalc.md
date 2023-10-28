@@ -5,9 +5,7 @@ description: This repository contains code to calculate greenhouse gas and emiss
 license: Unlicense
 tags:
   - forestry
-  - emissions
   - carbon
   - climate-change
   - biomass
-  - equations
 ---

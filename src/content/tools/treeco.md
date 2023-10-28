@@ -5,9 +5,6 @@ github_repo: https://github.com/tyluRp/treeco
 description: Ecosystem benefits of Trees
 license: MIT
 tags:
-  - r
-  - rstats
   - forestry
-  - trees
-  - equations
+
 ---

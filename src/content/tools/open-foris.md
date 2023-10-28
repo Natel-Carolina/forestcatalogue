@@ -5,8 +5,4 @@ description: Open Foris is a set of free and open-source software tools that fac
 license: MIT
 tags:
   - visualisation
-  - data-analysis
-  - data-collection
-  - reports
-  - foris
 ---

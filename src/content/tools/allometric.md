@@ -5,8 +5,5 @@ github_repo: https://github.com/xapple/forest_puller
 description: forest_puller is a python package for retrieving data concerning forests of European countries. This includes the amount of forested areas, the forest inventory (standing stock), the forest growth rates as well as the forest loss dynamics (disturbances).
 license: MIT
 tags:
-  - visualization
-  - open-data
-  - python
-  - forest-inventory
+  - inventory
 ---

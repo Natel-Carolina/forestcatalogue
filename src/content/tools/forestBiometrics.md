@@ -5,7 +5,5 @@ description: ForestBiometrics.jl is a package for working with forest measuremen
 license: MIT "Expat"
 tags:
   - forestry
-  - forest-inventory
-  - allometry
-  - equations
+  - inventory
 ---

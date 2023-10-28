@@ -5,8 +5,5 @@ description: This is a global, wall-to-wall map of aboveground biomass (AGB) at 
 tags:
   - global
   - above-ground-biomass
-  - biomass
-  - vegetation
-  - forests
-  - global-forest-watch
+  - forest
 ---
