@@ -19,4 +19,5 @@ export const collections = {
   tools: postsCollection,
   ["other-resources"]: postsCollection,
   models: postsCollection,
+  blog: postsCollection,
 };

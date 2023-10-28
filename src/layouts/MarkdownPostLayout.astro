@@ -16,7 +16,7 @@ const markdown = await Astro.slots.render("default");
     <PostCard frontmatter={frontmatter} />
     {
       hasMarkdown && markdown ? (
-        <article class="prose mt-20">
+        <article class="prose">
           <slot />
         </article>
       ) : null
