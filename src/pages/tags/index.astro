@@ -10,8 +10,10 @@ const allModels = await getCollection("models");
 const allResources = await getCollection("other-resources");
 const allTools = await getCollection("tools");
 const allPosts = [...allDatasets, ...allModels, ...allResources, ...allTools];
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())].sort();
-const pageTitle = "Tag Index";
+const tags = [
+  ...new Set(allPosts.map((post) => post.data.tags ?? []).flat()),
+].sort();
+const pageTitle = "Tags";
 ---
 
 <Layout title={pageTitle}>
