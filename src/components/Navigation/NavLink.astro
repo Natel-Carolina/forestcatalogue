@@ -15,8 +15,8 @@ const isActive =
   <a
     href={`.${path}`}
     class:list={[
-      "block py-2 pl-3 pr-4 rounded md:p-0",
-      { ["bg-sushi-800 text-sushi-300"]: isActive },
+      "block py-2 pl-3 pr-4 rounded md:p-0 hover:bg-sushi-600 focus:bg-sushi-600 hover:text-sushi-100 focus:text-sushi-100",
+      { ["bg-sushi-800 text-sushi-100"]: isActive },
     ]}
     aria-current={isActive ? "page" : false}
   >
