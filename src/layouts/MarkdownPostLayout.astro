@@ -2,10 +2,20 @@
 import Layout from "./Layout.astro";
 import PageTitle from "@components/PageTitle.astro";
 import PostCard from "@components/PostCard.astro";
+import dayjs from "dayjs";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, remarkPluginFrontmatter } = Astro.props;
 const hasMarkdown = Astro.slots.has("default");
 const markdown = await Astro.slots.render("default");
+
+const lastModified =
+  remarkPluginFrontmatter?.lastModified &&
+  remarkPluginFrontmatter?.lastModified !== remarkPluginFrontmatter?.pubDate
+    ? dayjs(remarkPluginFrontmatter.lastModified).format("MMMM D, YYYY")
+    : null;
+const publicationDate = remarkPluginFrontmatter?.pubDate
+  ? dayjs(remarkPluginFrontmatter?.pubDate).format("MMMM D, YYYY")
+  : null;
 ---
 
 <Layout title={frontmatter.title}>
@@ -13,7 +23,11 @@ const markdown = await Astro.slots.render("default");
   <div
     class="p-4 bg-sushi-200 rounded max-w-[640px] mx-auto mt-8 gap-4 flex-col flex"
   >
-    <PostCard frontmatter={frontmatter} />
+    <PostCard
+      frontmatter={frontmatter}
+      lastModified={lastModified}
+      publicationDate={publicationDate}
+    />
     {
       hasMarkdown && markdown ? (
         <article class="prose">
