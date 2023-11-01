@@ -8,17 +8,17 @@ const { path, label } = Astro.props;
 const isActive =
   Astro.url.pathname === `${import.meta.env.BASE_URL}${path}` ||
   Astro.url.pathname === `${import.meta.env.BASE_URL}${path}/` ||
-  (Astro.url.pathname === import.meta.env.BASE_URL && path === '/');
+  (Astro.url.pathname === import.meta.env.BASE_URL && path === "/");
 ---
 
 <li>
   <a
     href={`.${path}`}
     class:list={[
-      'block py-2 pl-3 pr-4 rounded md:p-0',
-      { ['bg-sushi-800 text-sushi-300']: isActive },
+      "block py-2 pl-3 pr-4 rounded md:p-0",
+      { ["bg-sushi-800 text-sushi-300"]: isActive },
     ]}
-    aria-current={isActive ? 'page' : false}
+    aria-current={isActive ? "page" : false}
   >
     {label}
   </a>
