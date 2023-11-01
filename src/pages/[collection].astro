@@ -32,13 +32,14 @@ const capitalizedTitle = titleWords
 <Layout title={`Forest Catalogue | ${capitalizedTitle}`}>
   <main>
     <PageTitle>{capitalizedTitle}</PageTitle>
-    <ul class="flex flex-col gap-4 mt-8 mx-auto max-w-[800px]">
+    <ul class="grid md:grid-cols-2 gap-4 mt-8 mx-auto max-w-[800px]">
       {
         allPosts.map((post) => (
           <li class="flex-col flex gap-4 rounded shadow p-4 bg-sushi-200">
+            {post.data.img ? <img src={post.data.img} /> : null}
             <a
               href={`./${post.collection}/${post.slug}`}
-              class="text-xl font-bold"
+              class="text-xl font-bold hover:text-sushi-600 focus:text-sushi-600"
             >
               {post.data.title}
             </a>

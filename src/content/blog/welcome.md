@@ -1,8 +1,7 @@
 ---
 title: "Welcome to the Forest catalogue"
 pubDate: 2023-28-10
-description: " "
-tags: []
+img: "./welcome.png"
 ---
 
 Our aim is to provide a curated list of datasets, tools and models related to forests.

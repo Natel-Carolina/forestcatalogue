@@ -16,7 +16,7 @@ const pageTitle = "Tag Index";
 
 <Layout title={pageTitle}>
   <PageTitle>Tags</PageTitle>
-  <div class="flex flex-wrap mt-16 justify-center gap-2">
+  <div class="flex flex-wrap mt-16 justify-center gap-2 max-w-[800px] mx-auto">
     {tags.map((tag) => <Tag tag={tag} />)}
   </div>
 </Layout>
