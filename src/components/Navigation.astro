@@ -1,32 +1,58 @@
+---
+import NavLink from '@components/Navigation/NavLink.astro';
+
+const navMap = [
+  { path: '/', label: 'Home' },
+  { path: '/blog', label: 'Blog' },
+  { path: '/datasets', label: 'Datasets' },
+  { path: '/models', label: 'Models' },
+  { path: '/tools', label: 'Tools' },
+  { path: '/other-resources', label: 'Other Resources' },
+];
+---
+
 <header
-  class="sticky top-0 left-0 w-full p-4 mb-8 bg-sushi-300/90"
-  transition:persist="nav"
+  class="sticky top-0 left-0 w-full p-4 bg-sushi-300/90"
   transition:animate="none"
 >
-  <nav class="flex justify-between gap-2 flex-wrap">
-    <a href="./" class="hover:font-bold focus:font-bold"> Home</a>
-    <ul class="flex gap-4 flex-wrap">
-      <li>
-        <a href="./blog" class="hover:font-bold focus:font-bold">
-          Blog
-        </a>
-      </li>
-      <li>
-        <a href="./datasets" class="hover:font-bold focus:font-bold">
-          Datasets
-        </a>
-      </li>
-      <li>
-        <a href="./models" class="hover:font-bold focus:font-bold"> Models</a>
-      </li>
-      <li>
-        <a href="./tools" class="hover:font-bold focus:font-bold"> Tools</a>
-      </li>
-      <li>
-        <a href="./other-resources" class="hover:font-bold focus:font-bold">
-          Other Resources
-        </a>
-      </li>
-    </ul>
+  <nav
+    class="font-medium flex justify-between flex-wrap items-center justify-between mx-auto"
+  >
+    <div>Forest Catalog</div>
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-sushi-800 hover:text-sushi-200"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open navigation menu</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"></path>
+      </svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul
+        class="flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 bg-sushi-500 md:bg-inherit"
+        transition:animate="fade"
+      >
+        {
+          navMap.map((navItem) => (
+            <NavLink label={navItem.label} path={navItem.path} />
+          ))
+        }
+      </ul>
+    </div>
   </nav>
 </header>
