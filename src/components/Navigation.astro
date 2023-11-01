@@ -2,7 +2,6 @@
 import NavLink from "@components/Navigation/NavLink.astro";
 
 const navMap = [
-  { path: "/", label: "Home" },
   { path: "/blog", label: "Blog" },
   { path: "/datasets", label: "Datasets" },
   { path: "/models", label: "Models" },
@@ -12,13 +11,13 @@ const navMap = [
 ---
 
 <header
-  class="sticky top-0 left-0 w-full p-2 bg-sushi-300/90 md:p-4"
+  class="sticky top-0 left-0 w-full p-2 bg-sushi-300/90 md:p-4 shadow"
   transition:animate="none"
 >
   <nav
     class="font-medium flex justify-between flex-wrap items-center justify-between mx-auto"
   >
-    <div>Forest Catalog</div>
+    <a href="./">Forest Catalog</a>
     <button
       data-collapse-toggle="navbar-default"
       type="button"
@@ -44,7 +43,7 @@ const navMap = [
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul
-        class="flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 bg-sushi-500 md:bg-inherit"
+        class="flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:mt-0 bg-sushi-500 md:bg-inherit"
         transition:animate="fade"
       >
         {
