@@ -1,7 +1,7 @@
 ---
 title: "Welcome to the Forest catalogue"
 pubDate: 2023-28-10
-img: "./welcome.png"
+img: "./assets/welcome.png"
 ---
 
 Our aim is to provide a curated list of datasets, tools and models related to forests.
@@ -10,7 +10,7 @@ By bringing together data from a variety of sources, we hope to create a platfor
 
 We believe that access to reliable and up-to-date forest data is essential for making informed decisions about forest protection and management.
 
-![Forest catalogue](public/welcome.png)
+![Forest catalogue](./assets/welcome.png)
 
 This catalogue contains data on local, regional and global observations of biodiversity, carbon, wildfire, ecosystem services and more.
 

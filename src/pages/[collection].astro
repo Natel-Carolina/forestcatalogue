@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
 import { getCollection, type ContentCollectionKey } from "astro:content";
 import Layout from "@layouts/Layout.astro";
@@ -36,7 +37,9 @@ const capitalizedTitle = titleWords
       {
         allPosts.map((post) => (
           <li class="flex-col flex gap-4 rounded shadow p-4 bg-sushi-200">
-            {post.data.img ? <img src={post.data.img} /> : null}
+            {post.data.img ? (
+              <Image src={post.data.img} alt="Cover image for blog post." />
+            ) : null}
             <a
               href={`./${post.collection}/${post.slug}`}
               class="text-xl font-bold hover:text-sushi-600 focus:text-sushi-600"
