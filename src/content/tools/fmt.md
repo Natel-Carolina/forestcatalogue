@@ -5,5 +5,4 @@ description: FMT (Forest Management Tool) is an open source forest management li
 license: LiLiQ-R-1.1
 tags:
   - forestry
-  
 ---

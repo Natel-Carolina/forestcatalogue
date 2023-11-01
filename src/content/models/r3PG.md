@@ -5,6 +5,4 @@ github_repo: https://github.com/trotsiuk/r3PG
 description: An R package for forest growth simulation using the 3-PG process-based model
 tags:
   - forest
-
-
 ---

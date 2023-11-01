@@ -7,5 +7,4 @@ license: MIT
 tags:
   - machine-learning
   - forestry
-
 ---

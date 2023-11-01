@@ -5,5 +5,4 @@ description: forvol is a package that contains various methods used to calculate
 tags:
   - forestry
   - inventory
-
 ---

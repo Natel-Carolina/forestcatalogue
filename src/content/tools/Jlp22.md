@@ -5,5 +5,4 @@ description: Jlp22 is a software for general purpose computations with special i
 license: MIT
 tags:
   - forestry
-
 ---

@@ -6,5 +6,4 @@ description: Ecosystem benefits of Trees
 license: MIT
 tags:
   - forestry
-
 ---
