@@ -29,31 +29,32 @@ const hasLinks = frontmatter.ext_url || frontmatter.github_repo;
 {
   hasLinks ? (
     <section class="flex gap-2">
-      <span>Project links: </span>
       {frontmatter.ext_url ? (
         <a
           href={frontmatter.ext_url}
-          class="px-1 flex items-center rounded hover:bg-sushi-700 hover:text-sushi-100 focus:bg-sushi-700 focus:text-sushi-100"
+          class="px-1 flex items-center rounded gap-1 text-sm text-sushi-700 hover:bg-sushi-700 hover:text-sushi-100 focus:bg-sushi-700 focus:text-sushi-100"
         >
           <Icon
             pack="fa-solid"
-            name="link"
+            name="external-link-alt"
             class="h-3"
             title="Link to project's site"
-          />
+          />{" "}
+          View website
         </a>
       ) : null}
       {frontmatter.github_repo ? (
         <a
           href={frontmatter.github_repo}
-          class="px-1 flex items-center rounded hover:bg-sushi-700 hover:text-sushi-100 focus:bg-sushi-700 focus"
+          class="px-1 flex items-center rounded gap-1 text-sm text-sushi-700 hover:bg-sushi-700 hover:text-sushi-100 focus:bg-sushi-700 focus"
         >
           <Icon
             pack="fa-brands"
             name="github"
             class="h-4"
             title="Link to project's github"
-          />
+          />{" "}
+          View on GitHub
         </a>
       ) : null}
     </section>
