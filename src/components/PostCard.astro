@@ -2,11 +2,19 @@
 import { Icon } from "astro-icon";
 import Tag from "@components/Tag.astro";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, lastModified, publicationDate } = Astro.props;
 
 const hasLinks = frontmatter.ext_url || frontmatter.github_repo;
 ---
 
+{
+  publicationDate ? (
+    <div class="text-xs text-sushi-600 flex justify-between">
+      {publicationDate ? <span>Published on: {publicationDate}</span> : null}
+      {lastModified ? <span>Updated on: {lastModified}</span> : null}
+    </div>
+  ) : null
+}
 {frontmatter.author ? <p class="">Written by {frontmatter.author}</p> : null}
 {frontmatter.description ? <p class="">{frontmatter.description}</p> : null}
 {

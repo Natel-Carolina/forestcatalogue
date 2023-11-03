@@ -1,23 +1,43 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
+import dayjs from "dayjs";
 
 export async function GET(context) {
   const allDatasets = await getCollection("datasets");
   const allModels = await getCollection("models");
   const allResources = await getCollection("other-resources");
   const allTools = await getCollection("tools");
-  const posts = [...allDatasets, ...allModels, ...allResources, ...allTools];
+  const allPosts = await getCollection("blog");
+  const posts = [
+    ...allDatasets,
+    ...allModels,
+    ...allResources,
+    ...allTools,
+    ...allPosts,
+  ];
+
+  const items = await Promise.all(
+    posts.map(async (post) => {
+      const { remarkPluginFrontmatter } = await post.render();
+
+      const publicationDate = remarkPluginFrontmatter?.pubDate
+        ? dayjs(remarkPluginFrontmatter?.pubDate).toString()
+        : null;
+
+      return {
+        title: post.data.title,
+        pubDate: publicationDate,
+        description: post.data.description,
+        link: `${context.site.pathname}/${post.collection}/${post.slug}/`,
+      };
+    }),
+  );
 
   return rss({
     title: "Forest Catalog",
     description: "A collection of resources for working with forest data",
     site: context.site.href,
-    items: posts.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.pubDate ?? new Date(),
-      description: post.data.description,
-      link: `${context.site.pathname}/${post.collection}/${post.slug}/`,
-    })),
+    items,
     customData: `<language>en-us</language>`,
   });
 }
