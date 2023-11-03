@@ -13,6 +13,7 @@ const postsCollection = defineCollection({
       ext_url: z.string().optional(),
       github_repo: z.string().optional(),
       img: image().optional(),
+      license: z.string().optional(),
     }),
 });
 // Export a single `collections` object to register your collection(s)
