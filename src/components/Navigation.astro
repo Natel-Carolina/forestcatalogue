@@ -21,43 +21,47 @@ const navMap = [
   >
     <a href="./" class="text-xl font-bold">Forest Catalogue</a>
 
-    <div class="inline-flex items-center gap-3">
-      <div id="docsearch" transition:animate="none" transition:persist></div>
-      <button
-        data-collapse-toggle="navbar-default"
-        type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-sushi-800 hover:text-sushi-200"
-        aria-controls="navbar-default"
-        aria-expanded="false"
+    <div
+      id="docsearch"
+      class="flex flex-grow justify-end"
+      transition:animate="none"
+      transition:persist
+    >
+    </div>
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="ml-3 inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-sushi-800 hover:text-sushi-200"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open navigation menu</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
       >
-        <span class="sr-only">Open navigation menu</span>
-        <svg
-          class="w-5 h-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 17 14"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15"></path>
-        </svg>
-      </button>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-        <ul
-          class="flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:mt-0 bg-sushi-500 md:bg-inherit"
-          transition:animate="fade"
-        >
-          {
-            navMap.map((navItem) => (
-              <NavLink label={navItem.label} path={navItem.path} />
-            ))
-          }
-        </ul>
-      </div>
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"></path>
+      </svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul
+        class="flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:mt-0 bg-sushi-500 md:bg-inherit"
+        transition:animate="fade"
+      >
+        {
+          navMap.map((navItem) => (
+            <NavLink label={navItem.label} path={navItem.path} />
+          ))
+        }
+      </ul>
     </div>
   </nav>
 </header>
