@@ -138,10 +138,10 @@ Here we build the LPJ-GUESS executable (`guess`) using the LPJ-GUESS code you do
 ```
 `cmake` should open an interactive session. In this session:
 
-- Press `c` to configure
-- Then press `t`` to show advanced options
-- Press `c` again
-- Press `g` to generate and exit. 
+- Press <kbd>c</kbd> to configure
+- Then press <kbd>t</kbd> to show advanced options
+- Press <kbd>c</kbd> again
+- Press <kbd>g</kbd> to generate and exit. 
 
 Then run the following command in the build folder:
 
@@ -150,11 +150,11 @@ Then run the following command in the build folder:
 ```
 
 Make sure that the output of `make` has no errors (warnings are OK), the output should end with "[100%] Built target guess". 
-Check that the `guess` executable was created in <your_project_folder>/guess_4.1/build/
+Check that the `guess` executable was created in `<your_project_folder>/guess_4.1/build/`
 
 ### 4. Testing LPJ-GUESS with demo data 
 
-It is good practice to create a separate directory within <your_project_folder> to store the output of your model runs. So go ahead and create a folder called, for example, runs.
+It is good practice to create a separate directory within `<your_project_folder>` to store the output of your model runs. So go ahead and create a folder called, for example, runs.
 
 ```
    cd <your_project_folder>
@@ -191,7 +191,7 @@ into
 ```
 
 Also change the lines below with the path on your computer to your input data. The demo data is located in 
-guess_4.1/data/env/
+`guess_4.1/data/env/`
 
 ```
    param "file_temp" (str "tmp30_21.grd") ! temperature
@@ -218,7 +218,7 @@ For example, do:
     head -n 2 gridlist_global.txt > gridlist.txt
 ```
 
-In the <your_project_folder>/runs folder,run the model like this:
+In the `<your_project_folder>/runs` folder,run the model like this:
 
 ```
    ./guess -input demo ..\..\data\ins\europe_demo.ins
@@ -230,15 +230,15 @@ If you already have your own data, you should run it using your own input module
     ./guess -input cru_ncep guess.ins
 ```
 
-If everything has been done correctly, you should have the model outputs in your `runs/' folder. A description of the available LPJ-GUESS outputs can be found [here](https://web.nateko.lu.se/lpj-guess/education/docs/outvars.html).
+If everything has been done correctly, you should have the model outputs in your `runs` folder. A description of the available LPJ-GUESS outputs can be found [here](https://web.nateko.lu.se/lpj-guess/education/docs/outvars.html).
 
 If there are any error messages, take action to resolve the error message: most likely it is that `guess` 
 cannot find this or that file. If this is the case, make sure that the paths in the file `europe_demo.ins` are correct, and 
-use absolute paths (e.g. <your_project_folder>/gridlist.txt) rather than relative ones (e.g. ../gridlist.txt).
+use absolute paths (e.g. `<your_project_folder>/gridlist.txt`) rather than relative ones (e.g. `../gridlist.txt`).
 
 If the execution of the model is "Finished" and shows no errors, then you are finished with this installation of LPJ-GUESS, and ready to start working with it.
 
-Now look at the output data, make some plots and explore the results. Next you should prepare your own input data and run the model for the location of your choice, specifying the geographical coordinates in a `gridlist.txt`` file.
+Now look at the output data, make some plots and explore the results. Next you should prepare your own input data and run the model for the location of your choice, specifying the geographical coordinates in a `gridlist.txt` file.
 
 In this tutorial you have learnt how to download, compile and run LPJ-GUESS with demo data for the first time. For more information about the model, see the materials in `guess_4.1/reference`.
 
