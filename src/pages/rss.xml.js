@@ -37,7 +37,8 @@ export async function GET(context) {
     title: "Forest Catalog",
     description: "A collection of resources for working with forest data",
     site: context.site.href,
+    xmlns: { atom: "http://www.w3.org/2005/Atom" },
     items,
-    customData: `<language>en-us</language>`,
+    customData: `<language>en-us</language><atom:link href="${context.site}/rss.xml" rel="self" type="application/rss+xml" />`,
   });
 }
