@@ -27,6 +27,11 @@ const hasLinks = frontmatter.ext_url || frontmatter.github_repo;
   ) : null
 }
 {
+  frontmatter.license ? (
+    <p class="text-sm">License: {frontmatter.license}</p>
+  ) : null
+}
+{
   hasLinks ? (
     <section class="flex gap-2">
       {frontmatter.ext_url ? (
