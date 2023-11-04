@@ -1,0 +1,37 @@
+---
+import { getCollection, type ContentCollectionKey } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import MarkdownPostLayout from "@layouts/MarkdownPostLayout.astro";
+
+export const getStaticPaths = (async () => {
+  const collections = [
+    "datasets",
+    "models",
+    "other-resources",
+    "tools",
+    "blog",
+  ] as ContentCollectionKey[];
+
+  const staticPathsFinal = await Promise.all(
+    collections.map(async (collection) => {
+      const resolvedCollection = await getCollection(collection);
+      const staticPaths = resolvedCollection.map((entry) => ({
+        params: { collection, slug: entry.slug },
+        props: { entry },
+      }));
+      return staticPaths;
+    }),
+  );
+  return staticPathsFinal.flat();
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await entry.render();
+---
+
+<MarkdownPostLayout
+  frontmatter={entry.data}
+  remarkPluginFrontmatter={remarkPluginFrontmatter}
+>
+  <Content />
+</MarkdownPostLayout>
