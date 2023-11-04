@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
+import expressiveCode from "astro-expressive-code";
 import {
   remarkModifiedTime,
   remarkPublishedTime,
@@ -16,7 +17,7 @@ const localBuildConfig = process.env.CI
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), sitemap(), robotsTxt()],
+  integrations: [tailwind(), sitemap(), robotsTxt(), expressiveCode()],
   markdown: {
     remarkPlugins: [remarkModifiedTime, remarkPublishedTime],
   },
