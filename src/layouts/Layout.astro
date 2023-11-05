@@ -25,6 +25,10 @@ const { title } = Astro.props;
     <title>{title}</title>
     <base href={import.meta.env.BASE_URL + "/"} />
     <ViewTransitions />
+    <script
+      async
+      src="https://analytics.eu.umami.is/script.js"
+      data-website-id="8e18eb88-1e03-4835-9a26-fe5673242a5c"></script>
   </head>
   <body class="min-h-screen min-w-screen bg-sushi-300 text-sushi-900 pb-20">
     <Navigation />
