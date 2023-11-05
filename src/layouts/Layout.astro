@@ -1,19 +1,72 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import { type Props as SeoProps, SEO } from "astro-seo";
+
 import Navigation from "@components/Navigation.astro";
 
 interface Props {
   title: string;
+  seo?: SeoProps;
 }
 
-const { title } = Astro.props;
+const { title, seo } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" transition:animate="fade">
   <head>
+    <SEO
+      title={seo?.title ?? title}
+      description={seo?.description ??
+        "Forest Catalogue is a curated catalogue of open-source data on forests."}
+      openGraph={{
+        basic: {
+          title: seo?.openGraph?.basic?.title ?? seo?.title ?? title,
+          type: "website", // TODO: use `article` for posts. see: https://ogp.me/#type_article
+          image:
+            seo?.openGraph?.basic.image ??
+            `${import.meta.env.SITE}${
+              import.meta.env.BASE_URL
+            }/social-share.png`,
+        },
+        image: {
+          alt:
+            seo?.openGraph?.image?.alt ??
+            "Discover ways to work with forest data.",
+        },
+        optional: {
+          siteName: "Forest Catalogue",
+          description:
+            seo?.openGraph?.optional?.description ??
+            seo?.description ??
+            "Forest Catalogue is a curated catalogue of open-source data on forests.",
+          locale: "en",
+        },
+        // TODO: article attributes
+      }}
+      twitter={{
+        card: seo?.twitter?.card ?? "summary",
+        image:
+          seo?.twitter?.image ??
+          seo?.openGraph?.basic.image ??
+          `${import.meta.env.SITE}${import.meta.env.BASE_URL}/social-share.png`,
+        imageAlt:
+          seo?.twitter?.imageAlt ??
+          seo?.openGraph?.image?.alt ??
+          "Discover ways to work with forest data.",
+        title:
+          seo?.twitter?.title ??
+          seo?.openGraph?.basic?.title ??
+          seo?.title ??
+          title,
+        description:
+          seo?.twitter?.description ??
+          seo?.openGraph?.optional?.description ??
+          seo?.description ??
+          "Forest Catalogue is a curated catalogue of open-source data on forests.",
+      }}
+    />
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link
       rel="icon"
@@ -22,7 +75,6 @@ const { title } = Astro.props;
     />
     <link rel="sitemap" href=`${import.meta.env.BASE_URL}/sitemap-index.xml` />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
     <base href={import.meta.env.BASE_URL + "/"} />
     <ViewTransitions />
   </head>
