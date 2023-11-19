@@ -37,7 +37,7 @@ Download the software -> Compile the software -> Test it with demo data
 
 ### 1: Downloading LPJ-GUESS
 
-Let's start by creating a folder on your computer for your LPJ-GUESS projects. The path and folder name on your computer will be referred to here as <your_project_folder>.
+Let's start by creating a folder on your computer for your LPJ-GUESS projects. The path and folder name on your computer will be referred to here as `<your_project_folder>`.
 
 ```sh
 mkdir <your_project_folder>
@@ -48,26 +48,7 @@ Now, go to the [developer's website](https://web.nateko.lu.se/lpj-guess/download
 
 ![LPJ-GUESS website](./assets/download.png)
 
-Then unzip the downloaded folder, and copy the subfolder guess_4.1 and all its contents to your <your_project_folder>.
-
-```text
-C:\USERS\USERNAME\DOWNLOADS\8065737\GUESS_4.1.1\GUESS_4.1
-└───guess_4.1.1
-    └───guess_4.1
-        ├───benchmarks
-        ├───build
-        ├───cmake
-        ├───command_line_version
-        ├───data
-        ├───doxygen
-        ├───framework
-        ├───libraries
-        ├───modules
-        ├───parallel_version
-        ├───reference
-        ├───tests
-        └───windows_version
-```
+Then unzip the downloaded folder, and copy the subfolder `guess_4.1` and all its contents to your `<your_project_folder>`.
 
 You should end up with something like this:
 
@@ -120,14 +101,14 @@ sudo apt upgrade
 sudo apt install build-essential
 ```
 
-It is likely that you now have g++ on your system (thanks to build-essentials).
+It is likely that you now have `g++` on your system (thanks to `build-essentials`).
 You can check this with the `ls` command below:
 
 ```sh
 ls /usr/bin/gcc*
 ```
 
-If this command shows that you already have gcc-9 installed (one of the output items should be: gcc-ar-9), you can skip the next line. If not, follow the steps below to install it:
+If this command shows that you already have `gcc-9` installed (one of the output items should be: `gcc-ar-9`), you can skip the next line. If not, follow the steps below to install it:
 
 ```sh
 sudo apt -y install gcc-9 g++-9*
@@ -172,14 +153,14 @@ cd runs
 Now we need to copy some instruction files and a gridlist example from the LPJ-GUESS source code folder (`guess_4.1`) into the `runs/` subdirectory.
 
 ```sh
-cp ../guess_4.1/data/ins/*.ins .
-cp ../guess_4.1/data/gridlist/gridlist_global.txt .
+cp ../data/ins/*.ins .
+cp ../data/gridlist/gridlist_geb.txt .
 ```
 
-Then make a symbolic link to the executable 'guess'
+Then make a symbolic link to the executable `guess`
 
 ```sh
-ln -s ../guess_4.1/build/guess .
+ln -s ../build/guess .
 ```
 
 If you are initially testing the model with demo input data, start by editing this file:
@@ -196,7 +177,7 @@ param "file_gridlist" (str "gridlist_global.txt")
 into
 
 ```text
-param "file_gridlist" (str "/home/<your_user>/<your_project_folder>/runs/gridlist.txt")
+param "file_gridlist" (str "gridlist.txt")
 ```
 
 Also change the lines below with the path on your computer to your input data. The demo data is located in
@@ -212,33 +193,41 @@ param "file_soil" (str "soils_lpj.dat") ! Path to LPJ soil code file
 into
 
 ```text
-param "file_temp" (str "/home/<your_user>/<your_project_folder>/guess_4.1/data/env/tmp30_21.grd") ! temperature
-param "file_prec" (str "/home/<your_user>/<your_project_folder>/guess_4.1/data/env/prc30_21.grd") ! precipitation
-param "file_sun" (str "/home/<your_user>/<your_project_folder>/guess_4.1/data/env/clo30_21.grd") ! sunshine
-param "file_soil" (str "/home/<your_user>/<your_project_folder>/guess_4.1/data/env/soils_lpj.dat") ! Path to LPJ soil code file
+param "file_temp" (str "../data/env/tmp30_21.grd") ! temperature
+param "file_prec" (str "../data/env/prc30_21.grd") ! precipitation
+param "file_sun" (str "../data/env/clo30_21.grd") ! sunshine
+param "file_soil" (str "../data/env/soils_lpj.dat") ! Path to LPJ soil code file
 ```
 
-**_TIP:_** Enter the full absolute path, not relative paths.
+One way of doing this is using `sed`:
 
-Also, edit a copy of your gridlist file,
-removing all but the 2 first lines, and making sure that the file ends with a blank line. This is just to quickly test the model in a few grid cells, to see if it's working.
+```sh
+sed -i 's@tmp30_21.grd@../data/env/tmp30_21.grd@g' europe_demo.ins
+sed -i 's@prc30_21.grd@../data/env/prc30_21.grd@g' europe_demo.ins
+sed -i 's@clo30_21.grd@../data/env/clo30_21.grd@g' europe_demo.ins
+sed -i 's@soils_lpj.dat@../data/env/soils_lpj.dat@g' europe_demo.ins
+```
+
+Also, edit a copy of your gridlist file, removing all but the first line, and making sure that the file ends with a blank line. This is just to quickly test the model in a single grid cell.
 
 For example, do:
 
 ```sh
-head -n 2 gridlist_global.txt > gridlist.txt
+head -n 1 gridlist_geb.txt > gridlist.txt
 ```
+
+To run on the entire gridlist, copy the file `gridlist_geb.txt` to `gridlist.txt`.
 
 In the `<your_project_folder>/runs` folder,run the model like this:
 
 ```sh
-./guess -input demo ..\..\data\ins\europe_demo.ins
+./guess -input demo europe_demo.ins
 ```
 
 If you already have your own data, you should run it using your own input module. For example, using the cru_ncep input module:
 
 ```sh
-./guess -input cru_ncep guess.ins
+./guess -input cru_ncep europe_cru.ins
 ```
 
 If everything has been done correctly, you should have the model outputs in your `runs` folder. A description of the available LPJ-GUESS outputs can be found [here](https://web.nateko.lu.se/lpj-guess/education/docs/outvars.html).
